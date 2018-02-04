@@ -68,7 +68,7 @@ public class MMTodoModel {
         timer!.resume()
     }
 
-    func load(retry: Bool = false) {
+    public func load(retry: Bool = false) {
         guard conInfo.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
