@@ -25,5 +25,5 @@ will create the DB as needed.
   s.ios.resource = 'MMTodo/Assets/MMTodo iOS/Storyboard-iOS.storyboard'
 
   s.osx.resource_bundle = { 'MMTodo' => [ 'MMTodo/Assets/MMTodo macOS/**/*' ] }
-  s.osx.resource = 'MMTodo/Assets/MMTodo macOS/MMTodoWindowController.xib', 'MMTodo/Assets/MMTodo macOS/Bar.png'
+  s.osx.resource = 'MMTodo/Assets/MMTodo macOS/MMTodoWindowController.xib', 'MMTodo/Assets/MMTodo macOS/Bar.png', 'MMTodo/Assets/MMTodo macOS/Save.pdf'
 end

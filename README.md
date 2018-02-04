@@ -112,7 +112,6 @@ self.todoModel.listen()
 
 ## Todo
 
-+ Need to have the StoryBoard, xib and images added to MMTodo Target when used from the Podfile
 + Add Todo Title edit in macOS
 
 ## Author
