@@ -12,6 +12,7 @@ public class MMTodoModel {
     public static var shared = MMTodoModel()
 
     var todos: [MMTodo] = []
+    public var projects: [String] = []
 
     public let conInfo = MMTodoConfiguration.shared
 
@@ -108,6 +109,49 @@ public class MMTodoModel {
             Swift.print(e)
         }
     }
+
+    func loadProjects(retry: Bool = false) {
+        guard conInfo.isConnectionReady() else {
+            Swift.print("Can't Load!")
+            return
+        }
+
+        guard retry || self.isConnected else { return }
+
+        while retry && !self.isConnected { }
+
+        do {
+            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
+            try con.use(conInfo.mySqlDatabase)
+            let select_stmt = try con.prepare("SELECT DISTINCT `project` FROM \(conInfo.mySqlTable)")
+
+            do {
+                // send query
+                let res = try select_stmt.query([])
+
+                projects.removeAll()
+
+                //read all rows from the resultset
+                if let rows = try res.readAllRows()?.first {
+                    for row in rows {
+                        projects.append(row["project"] as! String)
+                    }
+                }
+
+                NotificationCenter.default.post(name: .todoDidLoad, object: nil)
+            }
+            catch (let err) {
+                // if we get a error print it out
+                print(err)
+            }
+
+            try con.close()
+
+        } catch (let e) {
+            Swift.print(e)
+        }
+    }
+
 
     #if os(iOS)
     func todo(at indexPath: IndexPath) -> MMTodo? {
@@ -206,5 +250,6 @@ public class MMTodoModel {
     }
 
 }
+
 
 

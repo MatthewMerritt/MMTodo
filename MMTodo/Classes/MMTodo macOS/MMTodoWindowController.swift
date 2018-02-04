@@ -84,6 +84,7 @@ public class MMTodoView: NSView, NSTableViewDelegate, NSTableViewDataSource {
         if todoModel.isConnected {
             DispatchQueue.global(qos: .background).async {
                 self.todoModel.load()
+                self.todoModel.loadProjects()
             }
         }
     }
