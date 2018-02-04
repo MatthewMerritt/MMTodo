@@ -1,0 +1,10 @@
+framework module MMTodo {
+  umbrella header "MMTodo-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module MMTodo.__Swift {
+    exclude header "MMTodo-Swift.h"
+}

@@ -1,0 +1,6 @@
+framework module MMTodo {
+  umbrella header "MMTodo-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/matthew/Documents/Source/pods/MMTodo/Example/build/Debug/MMTodo-macOS/MMTodo.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/matthew/Documents/Source/pods/MMTodo/Example/build/Pods.build/Debug/MMTodo-macOS.build/unextended-module.modulemap',
+    }]
+  }]
+}
