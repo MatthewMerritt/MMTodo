@@ -11,9 +11,8 @@ import UIKit
 extension UIViewController {
 
     override open func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            UIApplication.shared.keyWindow?.rootViewController?.present(MMTodoTableViewController.todoNavigationController!, animated: true, completion: {
-            })
+        if motion == .motionShake && MMTodoConfiguration.shared.isShakable {
+            UIApplication.shared.keyWindow?.rootViewController?.present(MMTodoTableViewController.todoNavigationController!, animated: true, completion: { })
         }
     }
     

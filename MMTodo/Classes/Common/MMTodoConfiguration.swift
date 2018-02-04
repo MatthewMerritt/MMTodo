@@ -20,6 +20,7 @@ public class MMTodoConfiguration {
     public var pingPort: Int
     public var pingTimer: Int
     public var project: String
+    public var isShakable = true
 
     init() {
         self.mySqlHost     = ""
