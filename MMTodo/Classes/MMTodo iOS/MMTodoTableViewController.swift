@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
 
     override open func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake && MMTodoConfiguration.shared.isShakable {
+        if motion == .motionShake && MMTodoSettings.shared.isShakable {
             UIApplication.shared.keyWindow?.rootViewController?.present(MMTodoTableViewController.todoNavigationController!, animated: true, completion: { })
         }
     }
@@ -71,19 +71,19 @@ public class MMTodoTableViewController: UITableViewController {
 
     @objc func todoLoadNotification(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
+            self.title = self.todoModel.isConnected ? self.todoModel.settings.project : "Not Connected"
             self.tableView.reloadData()
         })
     }
 
     @objc func networkStatusNotification(_ notification: Notification) {
-        Swift.print("got notification")
+
         if let status = notification.userInfo!["Status"] as! String? {
 
             todoModel.load()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
+                self.title = self.todoModel.isConnected ? self.todoModel.settings.project : "Not Connected"
 
                 guard status == "Connected" else { return  }
 
@@ -95,7 +95,7 @@ public class MMTodoTableViewController: UITableViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
+        self.title = self.todoModel.isConnected ? self.todoModel.settings.project : "Not Connected"
 
         if todoModel.isConnected {
             DispatchQueue.global(qos: .background).async {
@@ -111,7 +111,7 @@ public class MMTodoTableViewController: UITableViewController {
     }
 
     @objc func addButtonItemAction(sender: UIBarButtonItem) {
-        todoModel.create(name: "New Working Todo", todo: "Insert todo here", project: todoModel.conInfo.project, status: .working, priority: .medium)
+        todoModel.create(name: "New Working Todo", todo: "Insert todo here", project: todoModel.settings.project, status: .working, priority: .medium)
     }
 
     @IBAction func doneButton(sender: UIBarButtonItem) {

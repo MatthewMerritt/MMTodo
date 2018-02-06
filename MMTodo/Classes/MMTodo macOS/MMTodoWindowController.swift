@@ -339,11 +339,11 @@ extension MMTodoView {
 
         switch sender.tag {
         case 1:
-            todoModel.create(name: "New Working Todo", todo: "Insert todo here", project: todoModel.conInfo.project, status: .working, priority: .medium)
+            todoModel.create(name: "New Working Todo", todo: "Insert todo here", project: todoModel.settings.project, status: .working, priority: .medium)
         case 2:
-            todoModel.create(name: "New Waiting Todo", todo: "Insert todo here", project: todoModel.conInfo.project, status: .waiting, priority: .medium)
+            todoModel.create(name: "New Waiting Todo", todo: "Insert todo here", project: todoModel.settings.project, status: .waiting, priority: .medium)
         case 3:
-            todoModel.create(name: "New Completed Todo", todo: "Insert todo here", project: todoModel.conInfo.project, status: .complete, priority: .medium)
+            todoModel.create(name: "New Completed Todo", todo: "Insert todo here", project: todoModel.settings.project, status: .complete, priority: .medium)
         default:
             _ = true
         }

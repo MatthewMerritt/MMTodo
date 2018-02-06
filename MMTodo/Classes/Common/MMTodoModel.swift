@@ -14,7 +14,7 @@ public class MMTodoModel {
     public var todos: [MMTodo] = []
     public var projects: [Dictionary<String, Any>] = []
 
-    public let conInfo = MMTodoConfiguration.shared
+    public let settings = MMTodoSettings.shared
 
     public let con = MySQL.Connection()
 
@@ -30,18 +30,18 @@ public class MMTodoModel {
             return
         }
 
-        guard conInfo.isPingReady() else {
+        guard settings.isPingReady() else {
             Swift.print("Not able to Ping!")
             return
         }
 
         let queue = DispatchQueue(label: "com.domain.app.timer")  // you can also use `DispatchQueue.main`, if you want
         timer = DispatchSource.makeTimerSource(queue: queue)
-        timer!.schedule(deadline: .now(), repeating: .seconds(conInfo.pingTimer))
+        timer!.schedule(deadline: .now(), repeating: .seconds(settings.pingTimer))
         timer!.setEventHandler { [weak self] in
 
             do {
-                let socket = try Socket(host: (self?.conInfo.pingHost)!, port: (self?.conInfo.pingPort)!)
+                let socket = try Socket(host: (self?.settings.pingHost)!, port: (self?.settings.pingPort)!)
                 try socket.Connect()
                 self?.isConnected = true
 
@@ -66,7 +66,7 @@ public class MMTodoModel {
     }
 
     public func load(retry: Bool = false) {
-        guard conInfo.isConnectionReady() else {
+        guard settings.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
         }
@@ -76,9 +76,9 @@ public class MMTodoModel {
         while retry && !self.isConnected { }
 
         do {
-            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
-            try con.use(conInfo.mySqlDatabase)
-            let select_stmt = try con.prepare("SELECT * FROM \(conInfo.mySqlTable) where project='\(conInfo.project)'")
+            try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
+            try con.use(settings.mySqlDatabase)
+            let select_stmt = try con.prepare("SELECT * FROM \(settings.mySqlTable) where project='\(settings.project)'")
 
             do {
                 // send query
@@ -108,7 +108,7 @@ public class MMTodoModel {
     }
 
     public func loadProjects(retry: Bool = false) {
-        guard conInfo.isConnectionReady() else {
+        guard settings.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
         }
@@ -118,8 +118,10 @@ public class MMTodoModel {
         while retry && !self.isConnected { }
 
         do {
-            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
-            try con.use(conInfo.mySqlDatabase)
+            try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
+            try con.use(settings.mySqlDatabase)
+
+            // SQL statement to load project status in form: [[Project : name, Working Status : Count, Waiting Status : Count, Complete Status : Count]]
             let select_stmt = try con.prepare("select project as Project, count(case when `status` = 'Working' then 1 end) as Working, count(case when `status` = 'Waiting' then 1 end) as Waiting, count(case when `status` = 'Complete' then 1 end) as Complete from Todos group by `project`")
 
             do {
@@ -180,16 +182,16 @@ public class MMTodoModel {
 
     func create(name: String, todo: String, project: String, status: MMTodo.Status, priority: MMTodo.Priority, createdAt: Date = Date(), modifiedAt: Date = Date()) {
 
-        guard conInfo.isConnectionReady() else {
+        guard settings.isConnectionReady() else {
             Swift.print("Can't Create!")
             return
         }
 
         do {
-            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
-            try con.use(conInfo.mySqlDatabase)
+            try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
+            try con.use(settings.mySqlDatabase)
 
-            let ins_stmt = try con.prepare("INSERT INTO \(conInfo.mySqlTable)(name, todo, project, status, priority, createdAt, modifedAt) VALUES(?,?,?,?,?,?,?)")
+            let ins_stmt = try con.prepare("INSERT INTO \(settings.mySqlTable)(name, todo, project, status, priority, createdAt, modifedAt) VALUES(?,?,?,?,?,?,?)")
 
             try ins_stmt.exec([name, todo, project, status.rawValue, priority.rawValue, createdAt, modifiedAt])
 
@@ -202,16 +204,16 @@ public class MMTodoModel {
     }
 
     func saveTodo(_ todo: MMTodo) {
-        guard conInfo.isConnectionReady() else {
+        guard settings.isConnectionReady() else {
             Swift.print("Can't Save!")
             return
         }
 
         do {
-            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
-            try con.use(conInfo.mySqlDatabase)
+            try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
+            try con.use(settings.mySqlDatabase)
 
-            let table = MySQL.Table(tableName: conInfo.mySqlTable, connection: con)
+            let table = MySQL.Table(tableName: settings.mySqlTable, connection: con)
 
             todo.modifiedAt = Date()
             try table.update(todo.dictionary(), key: "id")
@@ -225,16 +227,16 @@ public class MMTodoModel {
     }
 
     func remove(_ todo: MMTodo) {
-        guard conInfo.isConnectionReady() else {
+        guard settings.isConnectionReady() else {
             Swift.print("Can't Remove!")
             return
         }
 
         do {
-            try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
-            try con.use(conInfo.mySqlDatabase)
+            try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
+            try con.use(settings.mySqlDatabase)
 
-            let ins_stmt = try con.prepare("DELETE FROM \(conInfo.mySqlTable) WHERE id=\(todo.id)")
+            let ins_stmt = try con.prepare("DELETE FROM \(settings.mySqlTable) WHERE id=\(todo.id)")
             try ins_stmt.exec([])
 
             try con.close()

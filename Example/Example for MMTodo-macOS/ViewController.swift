@@ -25,11 +25,11 @@ class ViewController: NSViewController {
         todoMenu = MMTodoMenu(from: self, wth: #selector(self.todoMenuAction(_:)))
 
         // Setup the ping and MySQL Information
-        todoModel.conInfo.pingHost = "ping Host"
-        todoModel.conInfo.mySqlHost = "MySQL Host"
-        todoModel.conInfo.mySqlUsername = "MySQL Username"
-        todoModel.conInfo.mySqlPassword = "MySQL Password"
-        todoModel.conInfo.project = "Project"
+        todoModel.settings.pingHost = "ping Host"
+        todoModel.settings.mySqlHost = "MySQL Host"
+        todoModel.settings.mySqlUsername = "MySQL Username"
+        todoModel.settings.mySqlPassword = "MySQL Password"
+        todoModel.settings.project = "Project"
 
         // Start the listener for MySQL connection changes
         self.todoModel.listen()

@@ -20,7 +20,7 @@
 		34A1277A2026E3D00055CD49 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AC2026DED7007652F0 /* Bar.png */; };
 		34A1277B2026E3D00055CD49 /* Save.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AD2026DED7007652F0 /* Save.pdf */; };
 		34D8E6CB2026DED8007652F0 /* Storyboard-iOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6A92026DED7007652F0 /* Storyboard-iOS.storyboard */; };
-		34D8E6D02026DED8007652F0 /* MMTodoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B12026DED7007652F0 /* MMTodoConfiguration.swift */; };
+		34D8E6D02026DED8007652F0 /* MMTodoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B12026DED7007652F0 /* MMTodoSettings.swift */; };
 		34D8E6D12026DED8007652F0 /* MMTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B22026DED7007652F0 /* MMTodoModel.swift */; };
 		34D8E6D22026DED8007652F0 /* MMTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B32026DED7007652F0 /* MMTodo.swift */; };
 		34D8E6D32026DED8007652F0 /* MMTodo+Nofitication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */; };
@@ -40,7 +40,7 @@
 		34D8E6E32026DED8007652F0 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6C72026DED7007652F0 /* Statement.swift */; };
 		34D8E6E42026DED8007652F0 /* ConnectionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6C82026DED7007652F0 /* ConnectionPool.swift */; };
 		34D8E6E52026DED8007652F0 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6C92026DED7007652F0 /* Socket.swift */; };
-		34D8E6ED2026DF2F007652F0 /* MMTodoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B12026DED7007652F0 /* MMTodoConfiguration.swift */; };
+		34D8E6ED2026DF2F007652F0 /* MMTodoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B12026DED7007652F0 /* MMTodoSettings.swift */; };
 		34D8E6EE2026DF2F007652F0 /* MMTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B22026DED7007652F0 /* MMTodoModel.swift */; };
 		34D8E6EF2026DF2F007652F0 /* MMTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B32026DED7007652F0 /* MMTodo.swift */; };
 		34D8E6F02026DF2F007652F0 /* MMTodo+Nofitication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */; };
@@ -114,7 +114,7 @@
 		34D8E6AB2026DED7007652F0 /* MMTodoWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTodoWindowController.xib; sourceTree = "<group>"; };
 		34D8E6AC2026DED7007652F0 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
 		34D8E6AD2026DED7007652F0 /* Save.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Save.pdf; sourceTree = "<group>"; };
-		34D8E6B12026DED7007652F0 /* MMTodoConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoConfiguration.swift; sourceTree = "<group>"; };
+		34D8E6B12026DED7007652F0 /* MMTodoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoSettings.swift; sourceTree = "<group>"; };
 		34D8E6B22026DED7007652F0 /* MMTodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoModel.swift; sourceTree = "<group>"; };
 		34D8E6B32026DED7007652F0 /* MMTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodo.swift; sourceTree = "<group>"; };
 		34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMTodo+Nofitication.swift"; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 		34D8E6B02026DED7007652F0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				34D8E6B12026DED7007652F0 /* MMTodoConfiguration.swift */,
+				34D8E6B12026DED7007652F0 /* MMTodoSettings.swift */,
 				34D8E6B22026DED7007652F0 /* MMTodoModel.swift */,
 				34D8E6B32026DED7007652F0 /* MMTodo.swift */,
 				34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */,
@@ -690,7 +690,7 @@
 				34D8E6DB2026DED8007652F0 /* Connection.swift in Sources */,
 				34D8E6D32026DED8007652F0 /* MMTodo+Nofitication.swift in Sources */,
 				34D8E6D42026DED8007652F0 /* MMTodoTextViewController.swift in Sources */,
-				34D8E6D02026DED8007652F0 /* MMTodoConfiguration.swift in Sources */,
+				34D8E6D02026DED8007652F0 /* MMTodoSettings.swift in Sources */,
 				34D8E6E52026DED8007652F0 /* Socket.swift in Sources */,
 				34D8E6DD2026DED8007652F0 /* Result.swift in Sources */,
 				34D8E6D92026DED8007652F0 /* Query.swift in Sources */,
@@ -730,7 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34D8E6F02026DF2F007652F0 /* MMTodo+Nofitication.swift in Sources */,
-				34D8E6ED2026DF2F007652F0 /* MMTodoConfiguration.swift in Sources */,
+				34D8E6ED2026DF2F007652F0 /* MMTodoSettings.swift in Sources */,
 				34D8E6EE2026DF2F007652F0 /* MMTodoModel.swift in Sources */,
 				34D8E6F12026DF3A007652F0 /* MMTodoWindowController.swift in Sources */,
 				34D8E6F92026DF3F007652F0 /* sha1.swift in Sources */,
