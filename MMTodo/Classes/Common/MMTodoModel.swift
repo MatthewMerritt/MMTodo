@@ -11,8 +11,8 @@ import Foundation
 public class MMTodoModel {
     public static var shared = MMTodoModel()
 
-    var todos: [MMTodo] = []
-    public var projects: [String] = []
+    public var todos: [MMTodo] = []
+    public var projects: [Dictionary<String, Any>] = []
 
     public let conInfo = MMTodoConfiguration.shared
 
@@ -39,9 +39,6 @@ public class MMTodoModel {
         timer = DispatchSource.makeTimerSource(queue: queue)
         timer!.schedule(deadline: .now(), repeating: .seconds(conInfo.pingTimer))
         timer!.setEventHandler { [weak self] in
-            // do whatever you want here
-
-
 
             do {
                 let socket = try Socket(host: (self?.conInfo.pingHost)!, port: (self?.conInfo.pingPort)!)
@@ -110,7 +107,7 @@ public class MMTodoModel {
         }
     }
 
-    func loadProjects(retry: Bool = false) {
+    public func loadProjects(retry: Bool = false) {
         guard conInfo.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
@@ -123,7 +120,7 @@ public class MMTodoModel {
         do {
             try con.open(conInfo.mySqlHost, user: conInfo.mySqlUsername, passwd: conInfo.mySqlPassword)
             try con.use(conInfo.mySqlDatabase)
-            let select_stmt = try con.prepare("SELECT DISTINCT `project` FROM \(conInfo.mySqlTable)")
+            let select_stmt = try con.prepare("select project as Project, count(case when `status` = 'Working' then 1 end) as Working, count(case when `status` = 'Waiting' then 1 end) as Waiting, count(case when `status` = 'Complete' then 1 end) as Complete from Todos group by `project`")
 
             do {
                 // send query
@@ -134,7 +131,7 @@ public class MMTodoModel {
                 //read all rows from the resultset
                 if let rows = try res.readAllRows()?.first {
                     for row in rows {
-                        projects.append(row["project"] as! String)
+                        projects.append(row)
                     }
                 }
 
@@ -151,7 +148,6 @@ public class MMTodoModel {
             Swift.print(e)
         }
     }
-
 
     #if os(iOS)
     func todo(at indexPath: IndexPath) -> MMTodo? {
