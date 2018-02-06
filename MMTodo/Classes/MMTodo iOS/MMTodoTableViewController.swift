@@ -71,7 +71,7 @@ public class MMTodoTableViewController: UITableViewController {
 
     @objc func todoLoadNotification(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.title = self.todoModel.isConnected ? "Connected" : "Not Connected"
+            self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
             self.tableView.reloadData()
         })
     }
@@ -83,7 +83,7 @@ public class MMTodoTableViewController: UITableViewController {
             todoModel.load()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.title = self.todoModel.isConnected ? "Connected" : "Not Connected"
+                self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
 
                 guard status == "Connected" else { return  }
 
@@ -95,7 +95,7 @@ public class MMTodoTableViewController: UITableViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.title = self.todoModel.isConnected ? "Connected" : "Not Connected"
+        self.title = self.todoModel.isConnected ? self.todoModel.conInfo.project : "Not Connected"
 
         if todoModel.isConnected {
             DispatchQueue.global(qos: .background).async {
