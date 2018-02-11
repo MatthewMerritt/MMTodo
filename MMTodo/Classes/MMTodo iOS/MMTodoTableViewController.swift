@@ -115,8 +115,8 @@ public class MMTodoTableViewController: UITableViewController {
     }
 
     @IBAction func doneButton(sender: UIBarButtonItem) {
-        self.dismiss(animated: true) {
-        }
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) { }
     }
 
     override public func didReceiveMemoryWarning() {

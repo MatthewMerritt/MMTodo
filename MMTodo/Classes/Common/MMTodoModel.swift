@@ -66,14 +66,20 @@ public class MMTodoModel {
     }
 
     public func load(retry: Bool = false) {
+        // We need connection information in order to loadProjects
         guard settings.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
         }
 
+        // We need to either be retrying or connected
         guard retry || self.isConnected else { return }
 
+        // Wait while we are retrying and not connected
         while retry && !self.isConnected { }
+
+        // Remove all todos for table update
+        todos.removeAll()
 
         do {
             try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
@@ -83,8 +89,6 @@ public class MMTodoModel {
             do {
                 // send query
                 let res = try select_stmt.query([])
-
-                todos.removeAll()
 
                 //read all rows from the resultset
                 if let rows = try res.readAllRows()?.first {
@@ -108,14 +112,20 @@ public class MMTodoModel {
     }
 
     public func loadProjects(retry: Bool = false) {
+        // We need connection information in order to loadProjects
         guard settings.isConnectionReady() else {
             Swift.print("Can't Load!")
             return
         }
 
+        // We need to either be retrying or connected
         guard retry || self.isConnected else { return }
 
+        // Wait while we are retrying and not connected
         while retry && !self.isConnected { }
+
+        // Remove all projects for table update
+        projects.removeAll()
 
         do {
             try con.open(settings.mySqlHost, user: settings.mySqlUsername, passwd: settings.mySqlPassword)
@@ -128,7 +138,6 @@ public class MMTodoModel {
                 // send query
                 let res = try select_stmt.query([])
 
-                projects.removeAll()
 
                 //read all rows from the resultset
                 if let rows = try res.readAllRows()?.first {
