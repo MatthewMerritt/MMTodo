@@ -178,7 +178,7 @@ extension MMTodoTextViewController {
     @IBAction func priorityButtonAction(_ sender: UIBarButtonItem) {
 //        Swift.print("priorityButtonAction")
 
-        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? TodoPickerViewController
+        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? MMTodoPickerViewController
 
         picker?.delegate = self
         picker?.modalPresentationStyle = .popover
@@ -197,7 +197,7 @@ extension MMTodoTextViewController {
     }
 
     @IBAction func statusButtonAction(_ sender: UIBarButtonItem) {
-        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? TodoPickerViewController
+        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? MMTodoPickerViewController
 
         picker?.delegate = self
         picker?.modalPresentationStyle = .popover
@@ -216,7 +216,7 @@ extension MMTodoTextViewController {
     }
 
     @IBAction func dueDateButtonAction(_ sender: UIBarButtonItem) {
-        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? TodoPickerViewController
+        let picker = storyboard?.instantiateViewController(withIdentifier: "TodoPickerViewID") as? MMTodoPickerViewController
 
         picker?.delegate = self
         picker?.modalPresentationStyle = .popover
@@ -235,12 +235,12 @@ extension MMTodoTextViewController {
 
 }
 
-extension MMTodoTextViewController: TodoPickerViewControllerDelegate {
+extension MMTodoTextViewController: MMTodoPickerViewControllerDelegate {
 
     func didCancel(indexPath: IndexPath?) {
     }
 
-    func didSelect(selection: Any, ofType pickerType: TodoPickerType, indexPath: IndexPath?) {
+    func didSelect(selection: Any, ofType pickerType: MMTodoPickerType, indexPath: IndexPath?) {
 //        Swift.print("Selected: \(selection) ofType: \(pickerType)")
 
         switch pickerType {

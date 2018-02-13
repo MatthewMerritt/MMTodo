@@ -17,12 +17,16 @@ public class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+
+        Swift.print("pinghost", todoModel.settings.pingHost)
+        Swift.print("mysqlhost", todoModel.settings.mySqlHost)
+
         // Setup the ping and MySQL Information
-        todoModel.settings.pingHost = "ping Host"
-        todoModel.settings.mySqlHost = "MySQL Host"
-        todoModel.settings.mySqlUsername = "MySQL Username"
-        todoModel.settings.mySqlPassword = "MySQL Password"
-        todoModel.settings.project = "Project"
+//        todoModel.settings.pingHost = "ping Host"
+//        todoModel.settings.mySqlHost = "MySQL Host"
+//        todoModel.settings.mySqlUsername = "MySQL Username"
+//        todoModel.settings.mySqlPassword = "MySQL Password"
+//        todoModel.settings.project = "Project"
 
         // Start the listener for MySQL connection changes
         self.todoModel.listen()

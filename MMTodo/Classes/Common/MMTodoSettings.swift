@@ -20,19 +20,49 @@ public class MMTodoSettings {
     public var pingPort: Int
     public var pingTimer: Int
     public var project: String
-    public var isShakable = true
+    public var isShakable: Bool
 
     init() {
-        self.mySqlHost     = ""
-        self.mySqlPort     = 3309
-        self.mySqlDatabase = "MMTodo"
-        self.mySqlTable    = "Todos"
-        self.mySqlUsername = ""
-        self.mySqlPassword = ""
-        self.pingHost      = ""
-        self.pingPort      = 80
-        self.pingTimer     = 15
-        self.project       = ""
+
+        let defaults = UserDefaults.standard
+        let userDefaultsDefaults = [
+            "MySQLPort"  : 3309,
+            "pingPort"   : 80,
+            "pingTimer"  : 15,
+            "isShakable" : true,
+            ] as [String : Any]
+
+        defaults.register(defaults: userDefaultsDefaults)
+
+        mySqlHost     = defaults.string(forKey: "MySQLHost") ?? ""
+        mySqlPort     = defaults.integer(forKey: "MySQLPort")
+        mySqlDatabase = defaults.string(forKey: "MySQLDatabase") ?? ""
+        mySqlTable    = defaults.string(forKey: "MySQLTable") ?? ""
+        mySqlUsername = defaults.string(forKey: "MySQLUsername") ?? ""
+        mySqlPassword = defaults.string(forKey: "MySQLPassword") ?? ""
+        pingHost      = defaults.string(forKey: "pingHost") ?? ""
+        pingPort      = defaults.integer(forKey: "pingPort")
+        pingTimer     = defaults.integer(forKey: "pingTimer")
+        project       = defaults.string(forKey: "project") ?? ""
+        isShakable    = defaults.bool(forKey: "isShakable")
+    }
+
+    public func save() {
+        let defaults = UserDefaults.standard
+
+        defaults.synchronize()
+
+        mySqlHost     = defaults.string(forKey: "MySQLHost") ?? ""
+        mySqlPort     = defaults.integer(forKey: "MySQLPort")
+        mySqlDatabase = defaults.string(forKey: "MySQLDatabase") ?? ""
+        mySqlTable    = defaults.string(forKey: "MySQLTable") ?? ""
+        mySqlUsername = defaults.string(forKey: "MySQLUsername") ?? ""
+        mySqlPassword = defaults.string(forKey: "MySQLPassword") ?? ""
+        pingHost      = defaults.string(forKey: "pingHost") ?? ""
+        pingPort      = defaults.integer(forKey: "pingPort")
+        pingTimer     = defaults.integer(forKey: "pingTimer")
+        project       = defaults.string(forKey: "project") ?? ""
+        isShakable    = defaults.bool(forKey: "isShakable")
     }
 
     func isConnectionReady() -> Bool {

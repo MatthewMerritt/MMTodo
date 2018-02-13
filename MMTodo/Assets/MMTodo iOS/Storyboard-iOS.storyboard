@@ -220,7 +220,7 @@
         <!--Todo Picker View Controller-->
         <scene sceneID="tDV-Cz-Xl6">
             <objects>
-                <viewController storyboardIdentifier="TodoPickerViewID" automaticallyAdjustsScrollViewInsets="NO" id="olW-5V-S10" customClass="TodoPickerViewController" customModule="MMTodo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodoPickerViewID" automaticallyAdjustsScrollViewInsets="NO" id="olW-5V-S10" customClass="MMTodoPickerViewController" customModule="MMTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pAP-j5-cxi"/>
                         <viewControllerLayoutGuide type="bottom" id="RJC-Wh-Aag"/>
@@ -293,87 +293,247 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ping Host" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P8f-bV-4H0" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="75" width="343" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-bR-gw5">
+                                <rect key="frame" x="8" y="72" width="359" height="373"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2h-RB-JF8">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ping Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="102" translatesAutoresizingMaskIntoConstraints="NO" id="lPO-ku-nEC">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="pLg-Yl-qID"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ping Host" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P8f-bV-4H0" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="shq-aK-z41"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eo0-rz-HDH">
+                                        <rect key="frame" x="0.0" y="38" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ping Port" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="102" translatesAutoresizingMaskIntoConstraints="NO" id="26J-gt-UMj">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="ig7-nq-1tP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ping Host Port" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IFB-F9-Kao" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="uWb-OJ-GPz"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AI-wU-I4Y">
+                                        <rect key="frame" x="0.0" y="76" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ping Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-9G-gsW">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="Z2h-vA-Ka0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ping Timer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71C-Px-MhF" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="15G-1j-VJa"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfy-kK-4bx">
+                                        <rect key="frame" x="0.0" y="114" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MySQL Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qa-2T-dgm">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="dX9-Ee-Eqg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Host" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ens-Qd-aVc" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="7lv-yP-BYH"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhj-wQ-4We">
+                                        <rect key="frame" x="0.0" y="152" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MySQL User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrT-0f-cvg">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="rgn-x5-TP4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBv-yI-PV8" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="1GG-LH-aNc"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wE-ZL-TQk">
+                                        <rect key="frame" x="0.0" y="190" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MySQL Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-8g-lk5">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="tTH-o1-RcT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EKv-PA-2Ah" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="WuX-T7-hfD"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2c-nf-TVV">
+                                        <rect key="frame" x="0.0" y="228" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MySQL DB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp6-oI-uaU">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="tkX-3i-HpJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Table" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Bd-Q5-hld" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="Khk-Af-J84"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slz-Sl-dnj">
+                                        <rect key="frame" x="0.0" y="266" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MySQL Table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB6-oC-68C">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="5Ea-EY-hWd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Table" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-zR-rCr" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="jeR-2l-NNW"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-Js-kAs">
+                                        <rect key="frame" x="0.0" y="304" width="359" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBI-D7-UXf">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="6Nd-tG-FO9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T6S-eb-yhS" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="249" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="1Ti-aV-As3" id="EuX-fF-tfA"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-Xo-A7x">
+                                        <rect key="frame" x="0.0" y="342" width="359" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Shakable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCF-ez-uR4">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="2NM-MA-ZXV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agH-mg-ua6">
+                                                <rect key="frame" x="110" y="0.0" width="251" height="31"/>
+                                                <connections>
+                                                    <action selector="isShakableAction:" destination="1Ti-aV-As3" eventType="valueChanged" id="CEP-9f-bGk"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bwm-Qs-hJ7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="210" id="vds-hs-lhg"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ping Timer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71C-Px-MhF" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="113" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="pkK-ER-8a8"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Host" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ens-Qd-aVc" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="151" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SiB-Kr-xPZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBv-yI-PV8" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="189" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AsT-Bn-mcl"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EKv-PA-2Ah" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="227" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FbW-xm-uSO"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MySQL Table" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-zR-rCr" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="265" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T6S-eb-yhS" customClass="MMTextField" customModule="Todos" customModuleProvider="target">
-                                <rect key="frame" x="16" y="303" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="IBv-yI-PV8" secondAttribute="trailing" constant="16" id="3ME-mc-nGR"/>
-                            <constraint firstItem="IBv-yI-PV8" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="5Ho-DG-dow"/>
-                            <constraint firstItem="P8f-bV-4H0" firstAttribute="top" secondItem="aaI-v0-IO3" secondAttribute="top" constant="11" id="5Y3-dE-BKU"/>
-                            <constraint firstItem="EKv-PA-2Ah" firstAttribute="top" secondItem="IBv-yI-PV8" secondAttribute="bottom" constant="8" id="Aek-qt-rq8"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="71C-Px-MhF" secondAttribute="trailing" constant="16" id="MZ8-5Q-xOa"/>
-                            <constraint firstItem="T6S-eb-yhS" firstAttribute="top" secondItem="5Ol-zR-rCr" secondAttribute="bottom" constant="8" id="Mfr-e9-IZo"/>
-                            <constraint firstItem="EKv-PA-2Ah" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="Pdo-DE-Dio"/>
-                            <constraint firstItem="ens-Qd-aVc" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="QwX-XQ-ygn"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="ens-Qd-aVc" secondAttribute="trailing" constant="16" id="XQ5-5x-o9O"/>
-                            <constraint firstItem="P8f-bV-4H0" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="asl-3N-Fww"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="EKv-PA-2Ah" secondAttribute="trailing" constant="16" id="ePd-vp-Dcd"/>
-                            <constraint firstItem="ens-Qd-aVc" firstAttribute="top" secondItem="71C-Px-MhF" secondAttribute="bottom" constant="8" id="ek9-Sc-57q"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="T6S-eb-yhS" secondAttribute="trailing" constant="16" id="hkD-rT-P9x"/>
-                            <constraint firstItem="5Ol-zR-rCr" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="jhx-Xw-smr"/>
-                            <constraint firstItem="T6S-eb-yhS" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="ncV-Wi-X4U"/>
-                            <constraint firstItem="IBv-yI-PV8" firstAttribute="top" secondItem="ens-Qd-aVc" secondAttribute="bottom" constant="8" id="oax-3M-KYS"/>
-                            <constraint firstItem="5Ol-zR-rCr" firstAttribute="top" secondItem="EKv-PA-2Ah" secondAttribute="bottom" constant="8" id="v39-Td-s5f"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="5Ol-zR-rCr" secondAttribute="trailing" constant="16" id="vBF-Od-7bN"/>
-                            <constraint firstItem="71C-Px-MhF" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="16" id="vHC-Xp-nUq"/>
-                            <constraint firstItem="71C-Px-MhF" firstAttribute="top" secondItem="P8f-bV-4H0" secondAttribute="bottom" constant="8" id="wRI-5d-bzt"/>
-                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="P8f-bV-4H0" secondAttribute="trailing" constant="16" id="xEn-Ud-Ixk"/>
+                            <constraint firstItem="4bG-bR-gw5" firstAttribute="top" secondItem="aaI-v0-IO3" secondAttribute="top" constant="8" id="LIa-Qp-f8X"/>
+                            <constraint firstItem="4bG-bR-gw5" firstAttribute="leading" secondItem="aaI-v0-IO3" secondAttribute="leading" constant="8" id="cti-Wz-sUg"/>
+                            <constraint firstItem="aaI-v0-IO3" firstAttribute="trailing" secondItem="4bG-bR-gw5" secondAttribute="trailing" constant="8" id="nG6-q2-EPK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aaI-v0-IO3"/>
                     </view>
@@ -385,11 +545,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="isShakable" destination="agH-mg-ua6" id="tPH-kT-gEb"/>
+                        <outlet property="mySQLDatabaseTextField" destination="7Bd-Q5-hld" id="Hsa-YT-7zl"/>
                         <outlet property="mySQLHostTextField" destination="ens-Qd-aVc" id="8Qq-em-xZn"/>
                         <outlet property="mySQLPasswordTextField" destination="EKv-PA-2Ah" id="mb0-Hf-Wlj"/>
                         <outlet property="mySQLTableTextField" destination="5Ol-zR-rCr" id="7zb-5M-tdC"/>
                         <outlet property="mySQLUsernameTextField" destination="IBv-yI-PV8" id="I7u-aI-U82"/>
                         <outlet property="pingHostTextField" destination="P8f-bV-4H0" id="sUt-iC-QPu"/>
+                        <outlet property="pingPortTextField" destination="IFB-F9-Kao" id="cU6-xW-Ar6"/>
                         <outlet property="pingTimerTextField" destination="71C-Px-MhF" id="YTC-ha-gm1"/>
                         <outlet property="projectTextField" destination="T6S-eb-yhS" id="7wu-Am-bTV"/>
                     </connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TodoPickerType: String {
+enum MMTodoPickerType: String {
     case priority   = "Priority"
     case status     = "Statute"
     case createDate = "CreateDate"
@@ -46,18 +46,18 @@ enum TodoPickerType: String {
     }
 }
 
-protocol TodoPickerViewControllerDelegate {
-    func didSelect(selection: Any, ofType pickerType: TodoPickerType, indexPath: IndexPath?)
+protocol MMTodoPickerViewControllerDelegate {
+    func didSelect(selection: Any, ofType pickerType: MMTodoPickerType, indexPath: IndexPath?)
     func didCancel(indexPath: IndexPath?)
 }
 
-class TodoPickerViewController: UIViewController {
+class MMTodoPickerViewController: UIViewController {
 
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var delegate: TodoPickerViewControllerDelegate!
-    var pickerType: TodoPickerType!
+    var delegate: MMTodoPickerViewControllerDelegate!
+    var pickerType: MMTodoPickerType!
     var pickerValue: Any!
     var indexPath: IndexPath? = nil
 
@@ -114,7 +114,7 @@ class TodoPickerViewController: UIViewController {
 
 }
 
-extension TodoPickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension MMTodoPickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -164,7 +164,7 @@ extension TodoPickerViewController: UIPickerViewDelegate, UIPickerViewDataSource
 //    }
 }
 
-extension TodoPickerViewController {
+extension MMTodoPickerViewController {
 
     @IBAction func datePickerAction(_ sender: UIDatePicker) {
 //        Swift.print("sender: \(sender)")
@@ -212,9 +212,9 @@ extension TodoPickerViewController {
             case .dueDate:
                 delegate.didSelect(selection: datePickerView.date, ofType: type, indexPath: indexPath)
             case .priority:
-                delegate.didSelect(selection: MMTodo.Priority(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: TodoPickerType.priority, indexPath: indexPath)
+                delegate.didSelect(selection: MMTodo.Priority(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: MMTodoPickerType.priority, indexPath: indexPath)
             case .status:
-                delegate.didSelect(selection: MMTodo.Status(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: TodoPickerType.status, indexPath: indexPath)
+                delegate.didSelect(selection: MMTodo.Status(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: MMTodoPickerType.status, indexPath: indexPath)
             default:
                 Swift.print("Never!")
             }

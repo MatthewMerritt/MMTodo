@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MMTextField: UITextField, UITextFieldDelegate {
+public class MMTextField: UITextField, UITextFieldDelegate {
     enum TextFieldFormatting {
         case ipAddress
         case decimal
@@ -27,6 +27,7 @@ class MMTextField: UITextField, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         registerForNotifications()
+
     }
 
     deinit {
@@ -50,7 +51,7 @@ class MMTextField: UITextField, UITextFieldDelegate {
         case .ipAddress:
             checkForIPAddress()
         case .decimal:
-            if !isNumberOrDecimal() || string.count > maxLenth || !checkDecimal() {
+            if string.contains("..") || !isNumberOrDecimal() || string.count > maxLenth || !checkDecimal() {
                 super.text?.removeLast()
             }
         default:
@@ -90,6 +91,7 @@ class MMTextField: UITextField, UITextFieldDelegate {
         var string: String { return super.text ?? "" }
         let pieces = string.components(separatedBy: CharacterSet.init(charactersIn: "."))
 
+
         guard pieces.count > 1 else { return true }
 
         return pieces.last!.count <= decimalPoints
@@ -100,7 +102,7 @@ class MMTextField: UITextField, UITextFieldDelegate {
 
         var allowedCharacters = CharacterSet.decimalDigits
 
-        if decimalPoints > 0 {
+        if decimalPoints > 0 || format == .ipAddress {
             allowedCharacters = allowedCharacters.union(CharacterSet.init(charactersIn: "."))
         }
 

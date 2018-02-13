@@ -28,7 +28,7 @@
 		34D8E6D32026DED8007652F0 /* MMTodo+Nofitication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */; };
 		34D8E6D42026DED8007652F0 /* MMTodoTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B62026DED7007652F0 /* MMTodoTextViewController.swift */; };
 		34D8E6D52026DED8007652F0 /* MMTodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B72026DED7007652F0 /* MMTodoTableViewController.swift */; };
-		34D8E6D62026DED8007652F0 /* TodoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B82026DED7007652F0 /* TodoPickerViewController.swift */; };
+		34D8E6D62026DED8007652F0 /* MMTodoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B82026DED7007652F0 /* MMTodoPickerViewController.swift */; };
 		34D8E6D92026DED8007652F0 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6BD2026DED7007652F0 /* Query.swift */; };
 		34D8E6DA2026DED8007652F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6BE2026DED7007652F0 /* Constants.swift */; };
 		34D8E6DB2026DED8007652F0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6BF2026DED7007652F0 /* Connection.swift */; };
@@ -124,7 +124,7 @@
 		34D8E6B42026DED7007652F0 /* MMTodo+Nofitication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MMTodo+Nofitication.swift"; sourceTree = "<group>"; };
 		34D8E6B62026DED7007652F0 /* MMTodoTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoTextViewController.swift; sourceTree = "<group>"; };
 		34D8E6B72026DED7007652F0 /* MMTodoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoTableViewController.swift; sourceTree = "<group>"; };
-		34D8E6B82026DED7007652F0 /* TodoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoPickerViewController.swift; sourceTree = "<group>"; };
+		34D8E6B82026DED7007652F0 /* MMTodoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoPickerViewController.swift; sourceTree = "<group>"; };
 		34D8E6BA2026DED7007652F0 /* MMTodoWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoWindowController.swift; sourceTree = "<group>"; };
 		34D8E6BB2026DED7007652F0 /* MMTodoMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMTodoMenu.swift; sourceTree = "<group>"; };
 		34D8E6BD2026DED7007652F0 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 			children = (
 				34D8E6B62026DED7007652F0 /* MMTodoTextViewController.swift */,
 				34D8E6B72026DED7007652F0 /* MMTodoTableViewController.swift */,
-				34D8E6B82026DED7007652F0 /* TodoPickerViewController.swift */,
+				34D8E6B82026DED7007652F0 /* MMTodoPickerViewController.swift */,
 				34266DC4203373F60014ABB9 /* MMTextField.swift */,
 				34266DC6203374490014ABB9 /* MMTodoSettingsViewController.swift */,
 			);
@@ -704,7 +704,7 @@
 				34D8E6E22026DED8007652F0 /* mysql.swift in Sources */,
 				34266DC5203373F60014ABB9 /* MMTextField.swift in Sources */,
 				34D8E6D12026DED8007652F0 /* MMTodoModel.swift in Sources */,
-				34D8E6D62026DED8007652F0 /* TodoPickerViewController.swift in Sources */,
+				34D8E6D62026DED8007652F0 /* MMTodoPickerViewController.swift in Sources */,
 				34D8E6DF2026DED8007652F0 /* sha1.swift in Sources */,
 				34D8E6E02026DED8007652F0 /* Utils.swift in Sources */,
 				74619CE73FF453CAC2F3BFCF /* MMTodo-iOS-dummy.m in Sources */,
