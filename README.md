@@ -40,6 +40,11 @@ todoModel.settings.mySqlUsername = "MySQL Username"
 todoModel.settings.mySqlPassword = "MySQL Password"
 todoModel.settings.project = "Project"
 
+```
+or use the MMTodoSettingsViewController to set all these and save the to UserDefaults
+
+```swift
+
 // Start the listener for MySQL connection changes
 self.todoModel.listen()
 ```

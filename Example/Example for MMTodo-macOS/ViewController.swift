@@ -24,6 +24,7 @@ class ViewController: NSViewController {
         // Create Menu and place it on the Help Menu
         todoMenu = MMTodoMenu(from: self, wth: #selector(self.todoMenuAction(_:)))
 
+        // TODO: Fix this to use UserDefaults like iOS
         // Setup the ping and MySQL Information
         todoModel.settings.pingHost = "ping Host"
         todoModel.settings.mySqlHost = "MySQL Host"

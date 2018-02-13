@@ -10,23 +10,13 @@ import UIKit
 import MMTodo
 
 public class ViewController: UIViewController {
-    //    let connectionInformation = ConnectionInformation.shared
+
+    // Get the single MMTodoModel, this will load settings from UserDefaults
     public var todoModel = MMTodoModel.shared
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-
-        Swift.print("pinghost", todoModel.settings.pingHost)
-        Swift.print("mysqlhost", todoModel.settings.mySqlHost)
-
-        // Setup the ping and MySQL Information
-//        todoModel.settings.pingHost = "ping Host"
-//        todoModel.settings.mySqlHost = "MySQL Host"
-//        todoModel.settings.mySqlUsername = "MySQL Username"
-//        todoModel.settings.mySqlPassword = "MySQL Password"
-//        todoModel.settings.project = "Project"
 
         // Start the listener for MySQL connection changes
         self.todoModel.listen()
