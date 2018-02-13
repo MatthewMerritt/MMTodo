@@ -12,6 +12,8 @@
 		1D392AF1DD2105BD7207A66F /* Pods-MMTodo_Example-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA3E10A12361E61DBC7493 /* Pods-MMTodo_Example-iOS-dummy.m */; };
 		28DB2767FDE3DA82C0623E11 /* MMTodo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3BE5D26ED0538706B4BCA73 /* MMTodo.bundle */; };
 		3157E4525BE800417BB2F7F2 /* Pods-MMTodo_Example-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67AF7168CF01AF9DF08436C1 /* Pods-MMTodo_Example-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34266DC5203373F60014ABB9 /* MMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34266DC4203373F60014ABB9 /* MMTextField.swift */; };
+		34266DC7203374490014ABB9 /* MMTodoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34266DC6203374490014ABB9 /* MMTodoSettingsViewController.swift */; };
 		34A127752026E2DD0055CD49 /* MMTodoWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AB2026DED7007652F0 /* MMTodoWindowController.xib */; };
 		34A127762026E2DD0055CD49 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AC2026DED7007652F0 /* Bar.png */; };
 		34A127772026E2DD0055CD49 /* Save.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AD2026DED7007652F0 /* Save.pdf */; };
@@ -110,6 +112,8 @@
 		2968E17F147B2DC10308DAA8 /* MMTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5C3F724BA65FC30A8D90CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D2F770E7FE0399BAB3577AA /* Pods-MMTodo_Example-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MMTodo_Example-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		34266DC4203373F60014ABB9 /* MMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextField.swift; sourceTree = "<group>"; };
+		34266DC6203374490014ABB9 /* MMTodoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTodoSettingsViewController.swift; sourceTree = "<group>"; };
 		34D8E6A92026DED7007652F0 /* Storyboard-iOS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-iOS.storyboard"; sourceTree = "<group>"; };
 		34D8E6AB2026DED7007652F0 /* MMTodoWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTodoWindowController.xib; sourceTree = "<group>"; };
 		34D8E6AC2026DED7007652F0 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				34D8E6B62026DED7007652F0 /* MMTodoTextViewController.swift */,
 				34D8E6B72026DED7007652F0 /* MMTodoTableViewController.swift */,
 				34D8E6B82026DED7007652F0 /* TodoPickerViewController.swift */,
+				34266DC4203373F60014ABB9 /* MMTextField.swift */,
+				34266DC6203374490014ABB9 /* MMTodoSettingsViewController.swift */,
 			);
 			path = "MMTodo iOS";
 			sourceTree = "<group>";
@@ -688,6 +694,7 @@
 			files = (
 				34D8E6E32026DED8007652F0 /* Statement.swift in Sources */,
 				34D8E6DB2026DED8007652F0 /* Connection.swift in Sources */,
+				34266DC7203374490014ABB9 /* MMTodoSettingsViewController.swift in Sources */,
 				34D8E6D32026DED8007652F0 /* MMTodo+Nofitication.swift in Sources */,
 				34D8E6D42026DED8007652F0 /* MMTodoTextViewController.swift in Sources */,
 				34D8E6D02026DED8007652F0 /* MMTodoSettings.swift in Sources */,
@@ -695,6 +702,7 @@
 				34D8E6DD2026DED8007652F0 /* Result.swift in Sources */,
 				34D8E6D92026DED8007652F0 /* Query.swift in Sources */,
 				34D8E6E22026DED8007652F0 /* mysql.swift in Sources */,
+				34266DC5203373F60014ABB9 /* MMTextField.swift in Sources */,
 				34D8E6D12026DED8007652F0 /* MMTodoModel.swift in Sources */,
 				34D8E6D62026DED8007652F0 /* TodoPickerViewController.swift in Sources */,
 				34D8E6DF2026DED8007652F0 /* sha1.swift in Sources */,

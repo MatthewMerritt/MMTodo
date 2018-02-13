@@ -15,18 +15,55 @@ import Foundation
     public typealias Color = NSColor
 #endif
 
+/// MMTodo is the container for all your Todos.
 public class MMTodo {
-    var name: String
-    var todo: String
-    var project: String
-    var status: Status
-    var priority: Priority
-    var createdAt: Date   // iCloud System Field createdAt
-    var modifiedAt: Date  // iCloud System Field modifiedAt
-    var dueAt: Date?
-    var id: Int
-    var dateFormatter: DateFormatter
 
+    // MARK: Properties
+
+    /// The name used to for an MMTodo
+    var name: String
+
+    /// The actual todo for an MMTodo
+    var todo: String
+
+    /// The project that an MMTodo belongs to.
+    var project: String
+
+    /// The MMTodo.Status that an MMTodo has.
+    var status: Status
+
+    /// The MMTodo.Priority that an MMTodo has.
+    var priority: Priority
+
+    /// The date that an MMTodo was created.
+    var createdAt: Date
+
+    /// The date that an MMTodo was last modified.
+    var modifiedAt: Date
+
+    /// The date tht an MMTodo is due.
+    var dueAt: Date?
+
+    /// MySQL id for an MMTodo.
+    var id: Int
+
+    /// This is used to format a date for an MMTodo.
+    var dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        df.timeStyle = .short
+        df.timeZone  = .current
+
+        return df
+    }()
+
+    // MARK: Initializers
+
+    /// Create an MMTodo from a Dictionary.
+    ///
+    /// - Notes: MySQL returns a Dictionary on queryies.
+    ///
+    /// - Parameter dictionary: Dictionary representation of an MMTodo.
     init(with dictionary: Dictionary<String, Any>) {
         self.name = dictionary["name"] as! String
         self.todo = dictionary["todo"] as! String
@@ -50,6 +87,9 @@ public class MMTodo {
         dateFormatter.timeZone = .current
     }
 
+    /// This creates and returns a Dictionary representation of an MMTodo.
+    ///
+    /// - Returns: The Dictionary of an MMTodo.
     func dictionary() -> Dictionary<String, Any> {
         var dict: Dictionary<String, Any> = [:]
 
@@ -68,41 +108,75 @@ public class MMTodo {
 }
 
 extension MMTodo {
+
+    // MARK: MMTodo enums
+
+    /// Status represents the various MMTodo Status values.
     enum Status: String {
+
+        /// MMTodo currently not complete and active
         case working  = "Working"
+
+        /// MMTodo currently not completed, but not active
         case waiting  = "Waiting"
+
+        /// MMTodo complete
         case complete = "Complete"
+
+        /// Workaround for making controls - it is always the last value
         case count
 
+        /// Initialize an MMTodo Status by Int.
+        ///
+        /// - Parameter hashValue:  Int value to initialize MMTodo Status as.
         init(hashValue: Int) {
             switch hashValue {
             case 0:
                 self = .working
             case 1:
                 self = .waiting
+            case 2:
+                self = .complete
             default:
                 self = .complete
             }
         }
 
+        /// Initialize an MMTodo Status by String.
+        ///
+        /// - Parameter rawValue:  String value to initialize MMTodo Status as.
         init(rawValue: String) {
             switch rawValue {
             case "Working":
                 self = .working
             case "Waiting":
                 self = .waiting
+            case "Complete":
+                self = .complete
             default:
                 self = .complete
             }
         }
     }
 
+    /// Priority represents the various MMTodo Status values.
     enum Priority: String {
+
+        /// Complete when possible
         case low    = "Low"
+
+        /// Needs to be done, but nothing is broken
         case medium = "Medium"
+
+        /// Fix this now, something is broken
         case high   = "High"
+
+        /// Workaround for making controls - it is always the last value
         case count
 
+        /// Initialize MMTodo Priority.
+        ///
+        /// - Parameter hashValue: Int value to intialize MMTodo Priority as.
         init(hashValue: Int) {
             switch hashValue {
             case 0:
@@ -114,6 +188,9 @@ extension MMTodo {
             }
         }
 
+        /// Initialize MMTodo Priority.
+        ///
+        /// - Parameter rawValue: String value to initialize MMTodo Priority as.
         init(rawValue: String) {
             switch rawValue {
             case "Low":
@@ -125,6 +202,11 @@ extension MMTodo {
             }
         }
 
+        /// MMTodo Priority Colors
+        ///
+        /// - Returns: Returns a color for the MMTodo Priority.
+        ///
+        /// - Note: color is typealiased depending on platform.
         func color() -> Color {
             switch self {
             case .low:
