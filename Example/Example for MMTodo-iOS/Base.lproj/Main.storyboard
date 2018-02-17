@@ -41,7 +41,7 @@
                 <viewControllerPlaceholder storyboardName="Storyboard-iOS" bundleIdentifier="org.cocoapods.MMTodo" referencedIdentifier="MMTodoSettingsNavigationControllerID" id="0Hm-Ym-xan" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pch-96-Bca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="363"/>
+            <point key="canvasLocation" x="611" y="31"/>
         </scene>
     </scenes>
     <resources>
