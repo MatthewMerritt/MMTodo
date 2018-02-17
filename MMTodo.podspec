@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MMTodo'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'MMTodo is a crossplatform Todo Manger.'
   s.description      = <<-DESC
 MMTodo is a cross platform Todo Manager. It supports both iOS and macOS and saves to a

@@ -52,6 +52,7 @@ public class MMTodoTextViewController: UIViewController {
         toolBar.isUserInteractionEnabled = true
 
         textView.inputAccessoryView = toolBar
+//        textView.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
     }
 
     override public func viewWillAppear(_ animated: Bool) {
