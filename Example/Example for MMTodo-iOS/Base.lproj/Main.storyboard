@@ -23,7 +23,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lR-EK-zXA">
                                 <rect key="frame" x="27" y="31" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Network"/>
+                                <state key="normal" image="DBConfigure"/>
                                 <connections>
                                     <segue destination="0Hm-Ym-xan" kind="presentation" id="tmE-ji-Z4T"/>
                                 </connections>
@@ -45,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Network" width="25" height="25"/>
+        <image name="DBConfigure" width="25" height="25"/>
     </resources>
 </document>

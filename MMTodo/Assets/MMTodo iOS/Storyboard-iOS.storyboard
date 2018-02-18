@@ -543,6 +543,7 @@
                                 <action selector="doneButtonActionWithSender:" destination="1Ti-aV-As3" id="SEi-Ps-qau"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="DBRefresh" id="URH-dZ-Pn8"/>
                     </navigationItem>
                     <connections>
                         <outlet property="isShakable" destination="agH-mg-ua6" id="tPH-kT-gEb"/>
@@ -580,6 +581,9 @@
             <point key="canvasLocation" x="174" y="280"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DBRefresh" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cPF-a7-6E1"/>
     </inferredMetricsTieBreakers>
