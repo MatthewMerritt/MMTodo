@@ -67,8 +67,13 @@ class MMTodoSettingsViewController: UIViewController {
     }
 
     @IBAction func doneButtonAction(sender: UIBarButtonItem) {
-        self.dismiss(animated: true) { return }
-        self.navigationController?.popViewController(animated: true)
+
+        view.endEditing(true)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.dismiss(animated: true) { return }
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     /*
      // MARK: - Navigation
@@ -87,6 +92,18 @@ extension MMTodoSettingsViewController {
 
     @IBAction func isShakableAction(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "isShakable")
+    }
+
+    @IBAction func refreshButtonAction(_ sender: UIBarButtonItem) {
+        Swift.print("Refresh DB Connection")
+
+        if MMTodoModel.shared.isConnected {
+            Swift.print("We are already connected, so stop connection and listening")
+            MMTodoModel.shared.listen(on: false)
+        }
+
+        Swift.print("Start to listen now")
+        MMTodoModel.shared.listen()
     }
 }
 

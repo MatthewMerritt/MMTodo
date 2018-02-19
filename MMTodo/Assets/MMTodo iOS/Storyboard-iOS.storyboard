@@ -543,7 +543,11 @@
                                 <action selector="doneButtonActionWithSender:" destination="1Ti-aV-As3" id="SEi-Ps-qau"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="DBRefresh" id="URH-dZ-Pn8"/>
+                        <barButtonItem key="rightBarButtonItem" image="DBRefresh" id="URH-dZ-Pn8">
+                            <connections>
+                                <action selector="refreshButtonAction:" destination="1Ti-aV-As3" id="NZt-Rz-1Id"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="isShakable" destination="agH-mg-ua6" id="tPH-kT-gEb"/>
