@@ -162,11 +162,10 @@ public class MMTodoModel {
 
     #if os(iOS)
     func todo(at indexPath: IndexPath) -> MMTodo? {
-        return todos(byStatus: MMTodo.Status.init(hashValue: indexPath.section))[indexPath.row] ?? nil
+        return todos(byStatus: MMTodo.Status.init(hashValue: indexPath.section), sorted: "Priority")[indexPath.row] ?? nil
     }
     #elseif os(OSX)
     #endif
-
 
     func todos(byStatus status: MMTodo.Status, sorted by: String? = nil) -> [MMTodo?] {
         let matching = todos.filter { $0.status == status }
@@ -176,7 +175,6 @@ public class MMTodoModel {
         switch by {
         case "Priority"?:
             return matching.sorted { $0.priority.hashValue > $1.priority.hashValue }
-
         default:
             _ = true
         }
