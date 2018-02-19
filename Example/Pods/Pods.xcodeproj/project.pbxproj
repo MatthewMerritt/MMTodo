@@ -21,8 +21,8 @@
 		34A127792026E3190055CD49 /* Storyboard-iOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6A92026DED7007652F0 /* Storyboard-iOS.storyboard */; };
 		34A1277A2026E3D00055CD49 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AC2026DED7007652F0 /* Bar.png */; };
 		34A1277B2026E3D00055CD49 /* Save.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6AD2026DED7007652F0 /* Save.pdf */; };
-		34AC6979203A3D4900E0A73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34AC6978203A3D4900E0A73B /* Assets.xcassets */; };
-		34AC697A203A44C800E0A73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34AC6978203A3D4900E0A73B /* Assets.xcassets */; };
+		34AC698E203A962E00E0A73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34AC698D203A962E00E0A73B /* Assets.xcassets */; };
+		34AC698F203A963200E0A73B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34AC698D203A962E00E0A73B /* Assets.xcassets */; };
 		34D8E6CB2026DED8007652F0 /* Storyboard-iOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D8E6A92026DED7007652F0 /* Storyboard-iOS.storyboard */; };
 		34D8E6D02026DED8007652F0 /* MMTodoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B12026DED7007652F0 /* MMTodoSettings.swift */; };
 		34D8E6D12026DED8007652F0 /* MMTodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8E6B22026DED7007652F0 /* MMTodoModel.swift */; };
@@ -116,7 +116,7 @@
 		2D2F770E7FE0399BAB3577AA /* Pods-MMTodo_Example-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MMTodo_Example-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
 		34266DC4203373F60014ABB9 /* MMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTextField.swift; sourceTree = "<group>"; };
 		34266DC6203374490014ABB9 /* MMTodoSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMTodoSettingsViewController.swift; sourceTree = "<group>"; };
-		34AC6978203A3D4900E0A73B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34AC698D203A962E00E0A73B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34D8E6A92026DED7007652F0 /* Storyboard-iOS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-iOS.storyboard"; sourceTree = "<group>"; };
 		34D8E6AB2026DED7007652F0 /* MMTodoWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTodoWindowController.xib; sourceTree = "<group>"; };
 		34D8E6AC2026DED7007652F0 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
@@ -273,9 +273,9 @@
 		34D8E6A62026DED7007652F0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				34AC698D203A962E00E0A73B /* Assets.xcassets */,
 				34D8E6A82026DED7007652F0 /* MMTodo iOS */,
 				34D8E6AA2026DED7007652F0 /* MMTodo macOS */,
-				34AC6978203A3D4900E0A73B /* Assets.xcassets */,
 			);
 			name = Assets;
 			path = MMTodo/Assets;
@@ -641,7 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34D8E6CB2026DED8007652F0 /* Storyboard-iOS.storyboard in Resources */,
-				34AC6979203A3D4900E0A73B /* Assets.xcassets in Resources */,
+				34AC698E203A962E00E0A73B /* Assets.xcassets in Resources */,
 				9031C821A3A43AB417D4CA03 /* MMTodo.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +664,7 @@
 				28DB2767FDE3DA82C0623E11 /* MMTodo.bundle in Resources */,
 				34A127782026E3030055CD49 /* MMTodoWindowController.xib in Resources */,
 				34A1277B2026E3D00055CD49 /* Save.pdf in Resources */,
+				34AC698F203A963200E0A73B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +672,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34AC697A203A44C800E0A73B /* Assets.xcassets in Resources */,
 				34A127792026E3190055CD49 /* Storyboard-iOS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
