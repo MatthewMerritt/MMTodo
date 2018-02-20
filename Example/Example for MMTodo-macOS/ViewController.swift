@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     var todoMenu: MMTodoMenu!
     var todoWindowController: MMTodoWindowController?
 
+    @IBOutlet weak var configureDBButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

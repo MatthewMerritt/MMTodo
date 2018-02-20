@@ -10,9 +10,11 @@ import Foundation
 #if os(iOS)
     import UIKit
     public typealias Color = UIColor
+    public typealias Image = UIImage
 #elseif os(OSX)
     import Cocoa
     public typealias Color = NSColor
+    public typealias Image = NSImage
 #endif
 
 /// MMTodo is the container for all your Todos.
