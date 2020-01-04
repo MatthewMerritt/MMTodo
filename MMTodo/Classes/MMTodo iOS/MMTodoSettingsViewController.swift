@@ -71,8 +71,11 @@ class MMTodoSettingsViewController: UIViewController {
         view.endEditing(true)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.dismiss(animated: true) { return }
-            self.navigationController?.popViewController(animated: true)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true) { return }
+            }
         }
     }
     /*

@@ -10,7 +10,7 @@ import Foundation
 
 public extension MySQL {
     
-    public class Statement {
+    class Statement {
 
         enum StatementError : Error {
             case argsCountMismatch

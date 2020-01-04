@@ -10,9 +10,9 @@ import Foundation
 public extension Notification.Name {
 
     /// Notification sent when Network Status changed.
-    public static let todoDidChangeNetworkStatus = Notification.Name("MMTodoNetworkStatusNotification")
+    static let todoDidChangeNetworkStatus = Notification.Name("MMTodoNetworkStatusNotification")
 
     /// Notification sent when the MMTodo's have been loaded.
-    public static let todoDidLoad = Notification.Name("MMTodoLoadNotification")
+    static let todoDidLoad = Notification.Name("MMTodoLoadNotification")
 
 }

@@ -56,18 +56,25 @@ protocol BitshiftOperationsType {
 // MARK: - shiftLeft
 
 // helper to be able tomake shift operation on T
+//func << <T:SignedInteger>(lhs: T, rhs: Int) -> Int {
+//    let a = lhs as! Int
+//    let b = rhs
+//    return a << b
+//}
+//
+//func << <T:UnsignedInteger>(lhs: T, rhs: Int) -> UInt {
+//    let a = lhs as! UInt
+//    let b = rhs
+//    return a << b
+//}
+
 func << <T:SignedInteger>(lhs: T, rhs: Int) -> Int {
-    let a = lhs as! Int
-    let b = rhs
-    return a << b
+    return Int(lhs >> rhs);
 }
 
 func << <T:UnsignedInteger>(lhs: T, rhs: Int) -> UInt {
-    let a = lhs as! UInt
-    let b = rhs
-    return a << b
+    return UInt(lhs >> rhs);
 }
-
 
 protocol ByteConvertible {
     init(_ value: UInt8)
@@ -84,8 +91,8 @@ func arrayOfBytes<T: BinaryInteger>(_ value: T, length totalBytes: Int = MemoryL
         bytes[totalBytes - 1 - j] = (bytesPointer + j).pointee
     }
     
-    valuePointer.deinitialize()
-    valuePointer.deallocate(capacity: 1)
+    valuePointer.deinitialize(count: 1)
+    valuePointer.deallocate()
     
     return bytes
 }

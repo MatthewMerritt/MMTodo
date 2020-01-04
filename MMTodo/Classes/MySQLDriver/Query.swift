@@ -11,12 +11,12 @@ import Foundation
 
 public extension MySQL.Connection {
 
-    public enum QueryResultType {
+    enum QueryResultType {
         case success(MySQL.ResultSet)
         case error(Error)
     }
     
-    public class QueryResult {
+    class QueryResult {
         
         var rows : MySQL.ResultSet?
         var succClosure : ((_ rows:MySQL.ResultSet)->Void)? = nil

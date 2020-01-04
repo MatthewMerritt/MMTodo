@@ -14,8 +14,8 @@
 		349D31732026D278003906DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D316B2026D278003906DA /* ViewController.swift */; };
 		349D31742026D278003906DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349D316C2026D278003906DA /* LaunchScreen.xib */; };
 		349D31752026D278003906DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349D316E2026D278003906DA /* Main.storyboard */; };
-		349D31762026D278003906DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 349D31702026D278003906DA /* Images.xcassets */; };
 		349D31772026D278003906DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D31712026D278003906DA /* AppDelegate.swift */; };
+		34C080A3203D2211002A4AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34C080A2203D2211002A4AA9 /* Assets.xcassets */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6843B7F5A00C65C275426771 /* Pods_MMTodo_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4566CE89ED4DF86AE8D7BA9 /* Pods_MMTodo_Example_macOS.framework */; };
 		78FFF71E32C1FF6056E1AC15 /* Pods_MMTodo_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7638C8EF996BFAF49025736E /* Pods_MMTodo_Example_iOS.framework */; };
@@ -43,9 +43,9 @@
 		349D316B2026D278003906DA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		349D316D2026D278003906DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		349D316F2026D278003906DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		349D31702026D278003906DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		349D31712026D278003906DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349D31722026D278003906DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34C080A2203D2211002A4AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BDB6FC76D73A5318ACEC7B2 /* Pods-MMTodo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMTodo_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMTodo_Example/Pods-MMTodo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MMTodo_Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MMTodo_Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* MMTodo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMTodo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +110,7 @@
 				349D316B2026D278003906DA /* ViewController.swift */,
 				349D316C2026D278003906DA /* LaunchScreen.xib */,
 				349D316E2026D278003906DA /* Main.storyboard */,
-				349D31702026D278003906DA /* Images.xcassets */,
+				34C080A2203D2211002A4AA9 /* Assets.xcassets */,
 				349D31712026D278003906DA /* AppDelegate.swift */,
 				349D31722026D278003906DA /* Info.plist */,
 			);
@@ -319,8 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				349D31762026D278003906DA /* Images.xcassets in Resources */,
 				349D31742026D278003906DA /* LaunchScreen.xib in Resources */,
+				34C080A3203D2211002A4AA9 /* Assets.xcassets in Resources */,
 				349D31752026D278003906DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

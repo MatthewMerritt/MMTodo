@@ -11,7 +11,7 @@ import Foundation
 
 public extension MySQL {
     
-    public class Table {
+    class Table {
         
         enum TableError : Error {
             case tableExists
