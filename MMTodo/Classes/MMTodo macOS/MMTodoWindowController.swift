@@ -23,6 +23,9 @@ public class MMTodoWindowController: NSWindowController {
 
         window?.title = MMTodoModel.shared.isConnected ? "MMTodo: Connected" : "MMTodo: Not Connected"
 
+        window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)?.isHidden = true
+        window?.standardWindowButton(NSWindow.ButtonType.zoomButton)?.isHidden = true
+
     }
 
 }
@@ -145,7 +148,7 @@ public class MMTodoView: NSView, NSTableViewDelegate, NSTableViewDataSource {
     }
 
     public func tableViewSelectionDidChange(_ notification: Notification) {
-        
+
         if let tableView = notification.object as? NSTableView {
             switch tableView {
             case workingTableView:

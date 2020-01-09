@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     var todoMenu: MMTodoMenu!
     var todoWindowController: MMTodoWindowController?
 
-    @IBOutlet weak var configureDBButton: UIButton!
+    @IBOutlet weak var configureDBButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,11 +27,13 @@ class ViewController: NSViewController {
 
         // TODO: Fix this to use UserDefaults like iOS
         // Setup the ping and MySQL Information
-        todoModel.settings.pingHost = "ping Host"
-        todoModel.settings.mySqlHost = "MySQL Host"
-        todoModel.settings.mySqlUsername = "MySQL Username"
-        todoModel.settings.mySqlPassword = "MySQL Password"
-        todoModel.settings.project = "Project"
+        todoModel.settings.pingHost = "10.0.0.240"
+        todoModel.settings.mySqlHost = "10.0.0.240"
+        todoModel.settings.mySqlUsername = "root"
+        todoModel.settings.mySqlPassword = "littlehat291"
+        todoModel.settings.mySqlDatabase = "MerrittWare"
+        todoModel.settings.mySqlTable = "Todos"
+        todoModel.settings.project = "Utilties"
 
         // Start the listener for MySQL connection changes
         self.todoModel.listen()

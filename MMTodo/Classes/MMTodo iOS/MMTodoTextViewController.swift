@@ -259,8 +259,6 @@ extension MMTodoTextViewController: MMTodoPickerViewControllerDelegate {
         case .dueDate:
             todo.dueAt = selection as? Date
             needsSaving = true
-        default:
-            Swift.print("Never!")
         }
     }
 }

@@ -18,7 +18,7 @@ extension UIViewController {
     
 }
 
-public class MMTodoTableViewController: UITableViewController {
+public class MMTodoTableViewController: UITableViewController, UISplitViewControllerDelegate {
 
     static var shared: MMTodoTableViewController? = {
         let podBundle = Bundle(for: MMTodoTableViewController.self)
@@ -73,6 +73,7 @@ public class MMTodoTableViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.title = self.todoModel.isConnected ? self.todoModel.settings.project : "Not Connected"
             self.tableView.reloadData()
+
         })
     }
 
@@ -127,7 +128,7 @@ public class MMTodoTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
-        return MMTodo.Status.count.hashValue
+        return MMTodo.Status.allCases.count
     }
 
     override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -135,6 +136,14 @@ public class MMTodoTableViewController: UITableViewController {
     }
 
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return todoModel.todos(byStatus: MMTodo.Status.init(hashValue: section)).count
+//
+//        if section == 0 {
+//            return 3
+//        } else {
+//            return 0
+//        }
+
         return todoModel.todos(byStatus: MMTodo.Status.init(hashValue: section)).count
     }
 

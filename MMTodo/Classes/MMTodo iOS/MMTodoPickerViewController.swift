@@ -8,12 +8,11 @@
 
 import UIKit
 
-enum MMTodoPickerType: String {
+enum MMTodoPickerType: String, CaseIterable {
     case priority   = "Priority"
     case status     = "Statute"
     case createDate = "CreateDate"
     case dueDate    = "DueDate"
-    case count
 
     init(hashValue: Int) {
         switch hashValue {
@@ -44,6 +43,20 @@ enum MMTodoPickerType: String {
             self = .priority
         }
     }
+
+    var hashValue: Int {
+        switch self {
+        case .priority:
+            return 0
+        case .status:
+            return 1
+        case .createDate:
+            return 2
+        case .dueDate:
+            return 3
+        }
+    }
+
 }
 
 protocol MMTodoPickerViewControllerDelegate {
@@ -91,8 +104,6 @@ class MMTodoPickerViewController: UIViewController {
                 if let value = pickerValue as? MMTodo.Status {
                     pickerView.selectRow(value.hashValue, inComponent: 0, animated: true)
                 }
-            default:
-                Swift.print("Never!")
             }
         }
     }
@@ -124,9 +135,9 @@ extension MMTodoPickerViewController: UIPickerViewDelegate, UIPickerViewDataSour
         if let type = pickerType {
             switch type {
             case .priority:
-                return MMTodo.Priority.count.hashValue
+                return MMTodo.Priority.allCases.count
             case .status:
-                return MMTodo.Status.count.hashValue
+                return MMTodo.Status.allCases.count
             default:
                 return 0
             }
@@ -215,8 +226,6 @@ extension MMTodoPickerViewController {
                 delegate.didSelect(selection: MMTodo.Priority(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: MMTodoPickerType.priority, indexPath: indexPath)
             case .status:
                 delegate.didSelect(selection: MMTodo.Status(hashValue: pickerView.selectedRow(inComponent: 0)), ofType: MMTodoPickerType.status, indexPath: indexPath)
-            default:
-                Swift.print("Never!")
             }
         }
 

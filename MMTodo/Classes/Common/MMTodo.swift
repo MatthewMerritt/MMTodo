@@ -114,7 +114,7 @@ extension MMTodo {
     // MARK: MMTodo enums
 
     /// Status represents the various MMTodo Status values.
-    enum Status: String {
+    enum Status: String, CaseIterable {
 
         /// MMTodo currently not complete and active
         case working  = "Working"
@@ -126,7 +126,7 @@ extension MMTodo {
         case complete = "Complete"
 
         /// Workaround for making controls - it is always the last value
-        case count
+        //case count
 
         /// Initialize an MMTodo Status by Int.
         ///
@@ -159,10 +159,27 @@ extension MMTodo {
                 self = .complete
             }
         }
+
+        /// Return MMTodo Status by hashValue
+        ///
+        ///  We need to do this since hashValue is not guaranteed to be the same or consecutive values
+        ///
+        /// - Parameter rawValue:  String value to initialize MMTodo Status as.
+        var hashValue: Int {
+            switch self {
+            case .working:
+                return 0
+            case .waiting:
+                return 1
+            case .complete:
+                return 2
+            }
+        }
+
     }
 
     /// Priority represents the various MMTodo Status values.
-    enum Priority: String {
+    enum Priority: String, CaseIterable {
 
         /// Complete when possible
         case low    = "Low"
@@ -174,7 +191,7 @@ extension MMTodo {
         case high   = "High"
 
         /// Workaround for making controls - it is always the last value
-        case count
+        ///case count
 
         /// Initialize MMTodo Priority.
         ///
@@ -203,6 +220,23 @@ extension MMTodo {
                 self = .high
             }
         }
+
+        /// Return MMTodo Priority hashValue
+        ///
+        ///  We need to do this since hashValue is not guaranteed to be the same or consecutive values
+        ///
+        /// - Parameter rawValue:  String value to initialize MMTodo Status as.
+        var hashValue: Int {
+            switch self {
+            case .low:
+                return 0
+            case .medium:
+                return 1
+            case .high:
+                return 2
+            }
+        }
+
 
         /// MMTodo Priority Colors
         ///
